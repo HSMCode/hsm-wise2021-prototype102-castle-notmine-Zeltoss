@@ -10,8 +10,8 @@ public class AppleLauncher : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("LaunchGoodApple", 1f, 2f);                     //Start regularily calling the functions that will start the apple-launching process
-        InvokeRepeating("LaunchBadApple", 10f, 4f);
+        InvokeRepeating("LaunchGoodApple", 1f, 1f);                     //Start regularily calling the functions that will start the apple-launching process
+        InvokeRepeating("LaunchBadApple", 10f, 2f);
     }
 
     void LaunchGoodApple()

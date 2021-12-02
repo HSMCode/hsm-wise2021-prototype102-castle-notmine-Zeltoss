@@ -22,7 +22,8 @@ public class GoodApple : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.x < screenBounds.x * 10) {
+        if(transform.position.x < screenBounds.x * 10) 
+        {
             Destroy(this.gameObject);
         }
     }

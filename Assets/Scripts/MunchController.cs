@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MunchController : MonoBehaviour
 {   
     public Collider foodCollider;       //create a public collider variable, the collider of "kopfunten" needs to be attached here
+
+    private int score = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,5 +26,43 @@ public class MunchController : MonoBehaviour
         {
             foodCollider.enabled = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+		{
+			ReloadingScene();
+		}
+        
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "AppleGood")
+        {
+            score += 1;
+            Debug.Log(score);
+        }
+
+        if (other.tag == "AppleBad")
+        {
+            score -= 3;
+            Debug.Log(score);
+            
+        }
+        if (score <= 0)
+        {
+            StartCoroutine("gameOver");
+        }
+    }
+    
+    void ReloadingScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public IEnumerator gameOver ()
+    {
+        Debug.Log("GAME OVER");
+        yield return new WaitForSeconds(3);
+        ReloadingScene();
     }
 }
