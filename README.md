@@ -1,9 +1,6 @@
-# Project Title
+# Healthy Bug
 
-This project was imported using the **Unity 2020.3.x** empty base project.
-Please fill out/change the ReadMe according to your needs, following the guide below.
-
-One Paragraph of project description goes here.
+This is a collaboratively coed One-button-game where you need to help a bug eat good apples and dismiss bad ones.
 
 ## Summary
 
@@ -87,6 +84,10 @@ repository](https://github.com/PurpleBooth/a-good-readme-template/tags).
 
   - **Billie Thompson** - *Provided README Template* -
     [PurpleBooth](https://github.com/PurpleBooth)
+  - **Nelly Granson** - *Idea and Concept* -
+    [NellyGranson](https://github.com/NellyGranson)
+  - **Frederik Schneider** - *Started the project and coded baseline game* -
+    [Zeltoss](https://github.com/Zeltoss)
 
 See also the list of
 [contributors](https://github.com/PurpleBooth/a-good-readme-template/contributors)
