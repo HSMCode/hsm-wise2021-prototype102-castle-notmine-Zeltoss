@@ -211,6 +211,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 267414940}
+  - component: {fileID: 267414941}
   m_Layer: 0
   m_Name: AppleLauncher
   m_TagString: Untagged
@@ -226,12 +227,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 267414939}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 9.04, y: 4.38, z: 3.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &267414941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267414939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed542bebc8c2d14c8428d9fadab3041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GoodApplePrefab: {fileID: 7351930800377515539, guid: afc9cd9f205ff1245815918a3f02f4f1, type: 3}
+  respawnTime: 1
 --- !u!1 &743540870 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2828038568336115707, guid: 91a85a4e2f948084daabced55f784263, type: 3}
@@ -670,7 +685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7259799546086113285, guid: 91a85a4e2f948084daabced55f784263, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7259799546086113285, guid: 91a85a4e2f948084daabced55f784263, type: 3}
       propertyPath: m_LocalPosition.x
