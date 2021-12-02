@@ -246,7 +246,7 @@ BoxCollider:
   m_GameObject: {fileID: 743540870}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2.471091, y: 10.366791, z: 0.8413434}
   m_Center: {x: -0.1739152, y: 4.683395, z: 0.4518678}
@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2511ab54ff1123e4485da086230fe74b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisCollider: {fileID: 743540871}
+  foodCollider: {fileID: 743540871}
 --- !u!1 &872807274
 GameObject:
   m_ObjectHideFlags: 0

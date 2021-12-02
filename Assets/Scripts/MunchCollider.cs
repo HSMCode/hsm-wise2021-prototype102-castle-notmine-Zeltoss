@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MunchCollider : MonoBehaviour
 {   
-    public Collider thisCollider;
+    public Collider foodCollider;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +16,11 @@ public class MunchCollider : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            
+            foodCollider.enabled = true;
+        }
+        else
+        {
+            foodCollider.enabled = false;
         }
     }
 }
