@@ -1,12 +1,10 @@
-# Project Title
+# Healthy Bug
 
-This project was imported using the **Unity 2020.3.x** empty base project.
-Please fill out/change the ReadMe according to your needs, following the guide below.
-
-One Paragraph of project description goes here.
+This is a collaboratively coed One-button-game where you need to help a bug eat good apples and dismiss bad ones.
 
 ## Summary
 
+  - [Code Overview](#code-overview)
   - [Getting Started](#getting-started)
   - [Runing the tests](#running-the-tests)
   - [Deployment](#deployment)
@@ -16,6 +14,23 @@ One Paragraph of project description goes here.
   - [Authors](#authors)
   - [License](#license)
   - [Acknowledgments](#acknowledgments)
+
+## Code Overview
+KieferController.cs controls the bugs mouth, it rotates the upper half of the head to look like a mouth being opened, if space is pressed
+
+MunchController.cs controls the munching-process. If space is pressed, this script activates a collider thats part of the lower mouth-half
+This collider is larger than it needs to be to make the game more playable. it is the trigger for apples to be eaten
+MunchController also checks, if any apples that enter the foodCollider are good or bad, if they are good, this scripts adds points to the players score, if they are bad, it removes points
+MunchController also has a part that enables the reloading of the scene via the press of a button and manages game-overs if the score is too low
+
+AppleLauncher.cs simply launches the apples at a point out of view. It uses two coroutines to launch good and bad apples at random intervals.
+Good apples are launched more frequently than bad ones. This is balanced out by bad apples subtracting more points from the score than good ones add
+
+AppleController.cs makes the apples move. Once they are instatiated by AppleLauncher.cs, the recieve a small push in the direction of an invisible goal that is positioned to the left and out of bounds. If the space key is pressed, they are pushed towards the bug, if it isn´t, they are pushed towards the left (towards the invisible goal)
+If they leave the field of view, they are destroyed
+If the enter the foodCollider while it is ective, they are also destroyed
+
+GoodApple.cs has been deleted, its contents are used in some new existing scripts
 
 ## Getting Started
 
@@ -87,6 +102,10 @@ repository](https://github.com/PurpleBooth/a-good-readme-template/tags).
 
   - **Billie Thompson** - *Provided README Template* -
     [PurpleBooth](https://github.com/PurpleBooth)
+  - **Nelly Granson** - *Idea and Concept* -
+    [NellyGranson](https://github.com/NellyGranson)
+  - **Frederik Schneider** - *Started the project and coded baseline game* -
+    [Zeltoss](https://github.com/Zeltoss)
 
 See also the list of
 [contributors](https://github.com/PurpleBooth/a-good-readme-template/contributors)
