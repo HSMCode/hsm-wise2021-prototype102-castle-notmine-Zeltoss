@@ -20,6 +20,9 @@ public class MunchController : MonoBehaviour
     public GameObject[] gameOverObjects;
     public TextMeshProUGUI gameOverHighScore_UI;
 
+    // assign audioSource
+    private AudioSource _audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +31,9 @@ public class MunchController : MonoBehaviour
         // hide highscore until score and highscore are different
         highScore_Object = GameObject.Find("HighScore");
         highScore_Object.SetActive(false);
+
+        // assign munch audio source
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -53,12 +59,14 @@ public class MunchController : MonoBehaviour
         if (other.tag == "AppleGood")       //the script checks if the apple is good or bad, if it is good, one point is added to the score
         {
             score += 1;
+            _audioSource.Play();
             score_UI.text = score.ToString();
         }
 
         else if (other.tag == "AppleBad")        //if it is bad, 5 points are substracted from the score
         {
             score -= 5;
+            _audioSource.Play();
             score_UI.text = score.ToString();
 
             //if the score drops to or below zero, the game is over and the scene restarts again via a coroutine to give the player some time to think about their mistake
