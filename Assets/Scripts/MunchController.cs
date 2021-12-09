@@ -92,7 +92,7 @@ public class MunchController : MonoBehaviour
         for (int i = 0; i < gameOverObjects.Length; i++) {
             gameOverObjects[i].SetActive(true);
         }
-        gameOverHighScore_UI.text = "You managed to munch " + highscore + " apples in a row!";
+        gameOverHighScore_UI.text = "Your highest score was " + highscore + "!";
 
 
         yield return new WaitForSeconds(5);

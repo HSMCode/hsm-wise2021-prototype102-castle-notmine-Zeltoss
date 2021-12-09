@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Hold <b>Space</b> to absorb apples
+  m_text: 'Hold <b>Space</b> to catch apples
 
     Press <b>R</b> to reload the scene'
   m_isRightToLeft: 0
@@ -695,6 +695,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.0740833, y: 10.366792, z: 0.8413434}
   m_Center: {x: 0.232472, y: 4.683395, z: 0.4518549}
+--- !u!198 &743540873 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4682374426236033145, guid: 91a85a4e2f948084daabced55f784263, type: 3}
+  m_PrefabInstance: {fileID: 1819117462}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &790339619 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7259799546086113286, guid: 91a85a4e2f948084daabced55f784263, type: 3}
@@ -1538,6 +1543,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8047482925054370783, guid: 91a85a4e2f948084daabced55f784263, type: 3}
+      propertyPath: munchEffect
+      value: 
+      objectReference: {fileID: 743540873}
     m_RemovedComponents:
     - {fileID: 1070947491030069639, guid: 91a85a4e2f948084daabced55f784263, type: 3}
     - {fileID: 7259799546384244218, guid: 91a85a4e2f948084daabced55f784263, type: 3}
