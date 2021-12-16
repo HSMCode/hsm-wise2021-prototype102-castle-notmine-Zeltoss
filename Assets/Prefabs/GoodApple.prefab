@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1433629026325798651}
-  - component: {fileID: 4038728269806274849}
   - component: {fileID: 4862417214672740905}
   - component: {fileID: 5925737690321363457}
+  - component: {fileID: 7016333180808799806}
+  - component: {fileID: 2817299289908265383}
   m_Layer: 0
   m_Name: GoodApple
   m_TagString: AppleGood
@@ -36,19 +37,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &4038728269806274849
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 379331724902749860}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.34943944
-  m_Center: {x: 0, y: -0.035830498, z: -0.11473007}
 --- !u!114 &4862417214672740905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +51,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goalPosition: {x: 0, y: 0, z: 0}
   bugPosition: {x: 0, y: 0, z: 0}
+  idlePower: 0.2
+  openMouth: {fileID: 5332042569791236989, guid: eafd6a22aadc94a75bd987d55c4ea6a5, type: 3}
+  speed: 8
 --- !u!54 &5925737690321363457
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -79,6 +70,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &7016333180808799806
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379331724902749860}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.76375294, y: 0.6664748, z: 0.67342335}
+  m_Center: {x: -0.006948471, y: -0.000000014901161, z: -0.045164853}
+--- !u!135 &2817299289908265383
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379331724902749860}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.35
+  m_Center: {x: 0, y: 0, z: -0.05}
 --- !u!1 &3175922066460381790
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +107,6 @@ GameObject:
   - component: {fileID: 3186391034340350279}
   - component: {fileID: 4673842315868047477}
   - component: {fileID: 6015054605381725634}
-  - component: {fileID: 4915372340952531786}
   m_Layer: 0
   m_Name: sphere 1
   m_TagString: Untagged
@@ -161,19 +177,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &4915372340952531786
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3175922066460381790}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.4729681
-  m_Center: {x: 0, y: 0, z: -0.027031908}
 --- !u!1 &7168195228384548452
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +188,6 @@ GameObject:
   - component: {fileID: 7971574662703039941}
   - component: {fileID: 1259420921815472410}
   - component: {fileID: 3462429606113749960}
-  - component: {fileID: 1110218181726062643}
   m_Layer: 0
   m_Name: stiel
   m_TagString: Untagged
@@ -256,20 +258,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1110218181726062643
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7168195228384548452}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &7784290215870762506
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +269,6 @@ GameObject:
   - component: {fileID: 3029754877932554202}
   - component: {fileID: 119747162508776841}
   - component: {fileID: 1737643743100755593}
-  - component: {fileID: 8051228296884202265}
   m_Layer: 0
   m_Name: sphere 2
   m_TagString: Untagged
@@ -352,16 +339,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &8051228296884202265
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7784290215870762506}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.45322013
-  m_Center: {x: 0, y: 0, z: -0.046779856}

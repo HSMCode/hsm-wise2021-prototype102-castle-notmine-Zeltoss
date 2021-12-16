@@ -9,13 +9,17 @@ public class AppleController : MonoBehaviour
 
     Rigidbody thisApple;            //define a variable for this apples rigidbody
     
-    private float idlePower = 0.06f;    //set powerlevels for open and closed mouth status
-    private float eatPower = 0.2f;
+    [SerializeField] private float idlePower = 0.5f;    //set powerlevels for open and closed mouth status
+    //[SerializeField] private float eatPower = 1f;
     
     private Vector3 directionIdle;      //define variables for move directions
-    private Vector3 directionEat;
+    //private Vector3 directionEat;
 
-    private Vector2 screenBounds;       //define variable for screen-bounds
+    private Vector2 screenBounds; //define variable for screen-bounds
+
+    public Transform openMouth;
+    public float speed;
+    private float appleSpeed;
     
     // Start is called before the first frame update
     void Start()
@@ -25,7 +29,7 @@ public class AppleController : MonoBehaviour
         //Debug.Log(bugPosition);
         thisApple = GetComponent<Rigidbody>();
         directionIdle = goalPosition - transform.position;      //define direction for open-mouth movement
-        directionEat = bugPosition - transform.position;        //define direction for closed-mouth movement
+       // directionEat = bugPosition - transform.position;        //define direction for closed-mouth movement
         
         thisApple.AddForce(directionIdle * idlePower, ForceMode.Impulse);       //launch apple with small impulse on instantiation
 
@@ -39,22 +43,29 @@ public class AppleController : MonoBehaviour
     {   
         if (Input.GetKey(KeyCode.Space))        //push apple toward bug if mouth is open
         {
-            thisApple.AddForce(directionEat * eatPower, ForceMode.Force);
+            appleSpeed = speed * Time.deltaTime;
+           // thisApple.AddForce(directionEat * eatPower, ForceMode.Force);
+           thisApple.transform.position = Vector3.MoveTowards(thisApple.transform.position,openMouth.position,appleSpeed); //Move apple to Bug
         }
         else
         {
             thisApple.AddForce(directionIdle * idlePower, ForceMode.Force);     //push apple to the left if mouth is closed
         }
 
-        if(transform.position.x < screenBounds.x * 10)          //destroy apple if out of bounds
+        /*if(transform.position.x < screenBounds.x )          //destroy apple if out of bounds
         {
             Destroy(this.gameObject);
-        }
+        } */
     }
 
     public void OnTriggerEnter(Collider other)      //destroy apple if munched (e.g. if foodcollider is active and apple enters it)
     {
-        if (other.tag == "MunchZone")
+        if (other.CompareTag("MunchZone"))
+        {
+            Destroy(gameObject);
+        }
+        
+        if (other.CompareTag("KillZone"))
         {
             Destroy(gameObject);
         }
