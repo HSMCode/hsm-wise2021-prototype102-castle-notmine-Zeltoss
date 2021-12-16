@@ -15,6 +15,7 @@ public class MunchController : MonoBehaviour
     public TextMeshProUGUI score_UI;
     public TextMeshProUGUI highscore_UI;
     private GameObject highScore_Object;
+    public bool inputEnabled;
 
     // assign UI fields of gameover screen objects
     public GameObject[] gameOverObjects;
@@ -22,6 +23,7 @@ public class MunchController : MonoBehaviour
 
     // assign audioSource
     private AudioSource _audioSource;
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -34,12 +36,14 @@ public class MunchController : MonoBehaviour
 
         // assign munch audio source
         _audioSource = GetComponent<AudioSource>();
+        inputEnabled = true;
+        anim.SetBool("unhealthy",false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))        //while space is held down, the collider defined above is activated, otherwise deactivated
+        if (Input.GetKey(KeyCode.Space) && inputEnabled == true)        //while space is held down, the collider defined above is activated, otherwise deactivated
         {
             foodCollider.enabled = true;
         }
@@ -47,6 +51,7 @@ public class MunchController : MonoBehaviour
         {
             foodCollider.enabled = false;
         }
+        
 
         if (Input.GetKeyDown(KeyCode.R))        //if R is pressed, the scene reloads again through a reloading-method (see below)
 		{
@@ -61,13 +66,19 @@ public class MunchController : MonoBehaviour
             score += 1;
             _audioSource.Play();
             score_UI.text = score.ToString();
+            
         }
 
-        else if (other.tag == "AppleBad")        //if it is bad, 5 points are substracted from the score
+        else if (other.CompareTag("AppleBad"))        //if it is bad, 5 points are substracted from the score
         {
             score -= 5;
             _audioSource.Play();
             score_UI.text = score.ToString();
+            inputEnabled = false;
+            anim.SetBool("unhealthy",true);
+            anim.Play("unhealthyBUG_Animation");
+            anim.SetBool("unhealthy",false);
+            inputEnabled = true;
 
             //if the score drops to or below zero, the game is over and the scene restarts again via a coroutine to give the player some time to think about their mistake
             //this happens inside the bad-apple-is-eaten loop to stop the game from being over before the first apple is eaten
