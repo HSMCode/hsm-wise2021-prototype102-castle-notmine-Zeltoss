@@ -34,8 +34,6 @@ public class AppleController : MonoBehaviour
         thisApple.AddForce(directionIdle * idlePower, ForceMode.Impulse);       //launch apple with small impulse on instantiation
 
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));      //set screen-bounds
-
-
     }
 
     // Update is called once per frame
@@ -51,11 +49,6 @@ public class AppleController : MonoBehaviour
         {
             thisApple.AddForce(directionIdle * idlePower, ForceMode.Force);     //push apple to the left if mouth is closed
         }
-
-        /*if(transform.position.x < screenBounds.x )          //destroy apple if out of bounds
-        {
-            Destroy(this.gameObject);
-        } */
     }
 
     public void OnTriggerEnter(Collider other)      //destroy apple if munched (e.g. if foodcollider is active and apple enters it)
